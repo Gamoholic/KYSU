@@ -13,20 +13,24 @@ URL for version #:
 
 URL for download:
 	This is the link where you can download the program.
-	If the link ends with a filename with digits, use dollar signs as place holders.
+	If the link ends with a filename with digits, 
+	use dollar signs as place holders.
 	Static links are awesome and should work fine.
 
 Regex:
-	This is where you specify the regular expression string used to find the version number from the
+	This is where you specify the regular expression string used to find 
+	the version number from the
 	"URL for version #".
 
 
 How to run this script:
-	python kysu.py "name of database" "full directory of folder containing the files"
+	python kysu.py "name of database" "directory containing the files"
 	example:
 		python kysu.py programs.py /home/user/programs/
 	NOTE: You must include the trailing "/" for the folder directory!
 
 
-Example Cron command:
-	cd /home/user/updater; python kysu.py programs.db /home/user/programs/ >>programs-log.txt; python kysu.py isos.db /home/user/isos/ >>isos-log.db
+Example Cron script:
+	cd /home/user/updater 
+	python kysu.py programs.db /home/user/programs/ >>programs-log.txt 
+	python kysu.py isos.db /home/user/isos/ >>isos-log.db
