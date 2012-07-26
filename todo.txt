@@ -1,0 +1,12 @@
+1) Email Reporting.
+2) Command Line Options.
+3) Check Filehippo Entries.
+4) Fix Sourceforge Entries.
+5) Add More Programs.
+6) Self Update.
+7) Comment Out DB Entries.
+8) Add Support For Sites Like MajorGeeks and Download.com.
+9) Create A Bukkit Plugin Branch.
+10) Add More Error Checking.
+11) Start A Version System.
+12) Make A Changelog.
