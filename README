@@ -19,14 +19,13 @@ URL for download:
 
 Regex:
 	This is where you specify the regular expression string used to find 
-	the version number from the
-	"URL for version #".
+	the version number from the "URL for version #".
 
 
 How to run this script:
 	python kysu.py "name of database" "directory containing the files"
 	example:
-		python kysu.py programs.py /home/user/programs/
+		python kysu.py programs.db /home/user/programs/
 	NOTE: You must include the trailing "/" for the folder directory!
 
 
