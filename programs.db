@@ -4,8 +4,8 @@ iTunes_32-$$.$.$.exe http://www.filehippo.com/download_itunes_32/ http://www.fil
 Notepad++-$.$.$.exe http://notepad-plus-plus.org/news/ http://download.tuxfamily.org/notepadplus/$.$.$/npp.$.$.$.Installer.exe \d\.\d\.\d
 TeamViewer-$.$.$$$$$.exe http://www.teamviewer.com/en/download/index.aspx http://www.teamviewer.com/download/TeamViewer_Setup_en.exe \d\.\d\.\d\d\d\d\d
 Libre_Office-$.$.$.msi http://wiki.documentfoundation.org/Main_Page http://download.documentfoundation.org/libreoffice/stable/$.$.$/win/x86/LibO_$.$.$_Win_x86_install_multi.msi \d\.\d\.\d
-7zip_32-$.$$.exe http://sourceforge.net/projects/sevenzip/files/7-Zip/ http://sourceforge.net/projects/sevenzip/files/7-Zip/$.$$/7z$$$.exe \d\.\d\d
-7zip_64-$.$$.msi http://sourceforge.net/projects/sevenzip/files/7-Zip/ http://sourceforge.net/projects/sevenzip/files/7-Zip/$.$$/7z$$$.msi \d\.\d\d
+7zip_32-$.$$.exe http://sourceforge.net/projects/sevenzip/files/7-Zip/ http://sourceforge.net/projects/sevenzip/files/7-Zip/$.$$/7z$$$.exe \"\d\.\d\d\"
+7zip_64-$.$$.msi http://sourceforge.net/projects/sevenzip/files/7-Zip/ http://sourceforge.net/projects/sevenzip/files/7-Zip/$.$$/7z$$$.msi \"\d\.\d\d\"
 Adobe_Reader-$$.$.$.exe http://www.filehippo.com/download_adobe_reader/ http://www.filehippo.com/download_adobe_reader/ \d\d\.\d\.\d
 FileZilla-$.$.$.exe http://filezilla-project.org/download.php?type=client http://sourceforge.net/projects/filezilla/files/FileZilla_Client/$.$.$/FileZilla_$.$.$_win32-setup.exe/download \d\.\d\.\d
 Java_32-$.$.$.$.exe http://www.filehippo.com/download_jre_32/ http://www.filehippo.com/download_jre_32/ \d\.\d\.\d\.\d
