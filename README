@@ -32,4 +32,4 @@ How to run this script:
 Example Cron script:
 	cd /home/user/updater 
 	python kysu.py programs.db /home/user/programs/ >>programs-log.txt 
-	python kysu.py isos.db /home/user/isos/ >>isos-log.db
+	python kysu.py isos.db /home/user/isos/ >>isos-log.txt
