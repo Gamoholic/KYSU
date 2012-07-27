@@ -1,6 +1,5 @@
 - Email Reporting.
 - Command Line Options.
-- Check Filehippo Entries.
 - Add More Programs.
 - Self Update.
 - Comment Out DB Entries.
