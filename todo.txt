@@ -2,7 +2,6 @@
 - Command Line Options.
 - Add More Programs.
 - Self Update.
-- Comment Out DB Entries.
 - Add Support For Sites Like MajorGeeks and Download.com.
 - Create A Bukkit Plugin Branch.
 - Add More Error Checking.
