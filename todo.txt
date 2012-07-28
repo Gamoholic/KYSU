@@ -7,4 +7,3 @@
 - Add more error checking.
 - Start a version system.
 - Make a changelog.
-- Find a better way to remove characters from ver.
