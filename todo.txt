@@ -1,9 +1,10 @@
-- Email Reporting.
-- Command Line Options.
-- Add More Programs.
-- Self Update.
-- Add Support For Sites Like MajorGeeks and Download.com.
-- Add Support For Bukkit Plugins.
-- Add More Error Checking.
-- Start A Version System.
-- Make A Changelog.
+- Email reporting.
+- Command line options.
+- Add more programs.
+- Self update.
+- Add support for sites like MajorGeeks and Download.com.
+- Add support for Bukkit plugins.
+- Add more error checking.
+- Start a version system.
+- Make a changelog.
+- Find a better way to remove characters from ver.
