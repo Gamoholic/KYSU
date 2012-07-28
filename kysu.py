@@ -5,10 +5,12 @@ exts = ['.exe', '.msi', '.iso', '.zip']
 def make_html(url): return urllib.urlopen(url).read()
   
 def name_generator(name, ver):
-  if name.endswith('/') or name.find('$') == -1: final_name = name
+  if name.endswith('/') or name.find('$') == -1: 
+    final_name = name
   else: 
     final_name = name_replace(name, ver)
-    while '$' in final_name: final_name = name_replace(final_name, ver)
+    while '$' in final_name: 
+      final_name = name_replace(final_name, ver)
   if 'filehippo' in name:
     a = res('\<a.*?(Latest Version).*?span\>', make_html(name), 0)
     b = res('href=\"(.*?)\"', a, 1)
@@ -23,8 +25,10 @@ def name_replace(name, ver):
     if name_rep[s] == '$':
       name_list.append(delim_ver[c])
       c += 1
-    else: name_list.append(name_rep[s])
-  for s in range(len(name_list)): name_str += name_list[s]
+    else: 
+      name_list.append(name_rep[s])
+  for s in range(len(name_list)): 
+    name_str += name_list[s]
   return name.replace(name_rep, name_str)
 
 def build_dict(filenames):
@@ -35,13 +39,16 @@ def build_dict(filenames):
 
 def res(regex, string, x):
   a = re.search(regex, string)
-  try: return a.group() if x == 0 else a.group(x)
-  except AttributeError: return ''
+  try: 
+    return a.group() if x == 0 else a.group(x)
+  except AttributeError: 
+    return ''
 
 def main():
   print datetime.datetime.now().strftime("%m-%d-%Y")
   local_files = os.listdir(sys.argv[2])
-  big_list = [s.split() for s in open(sys.argv[1], 'rU').read().split('\n') if s != '' and not s.startswith('#')]
+  big_list = [s.split() for s in open(sys.argv[1], 'rU').read().split('\n') 
+    if s != '' and not s.startswith('#')]
   final_list, url_list, final_dict, url_dict = [], [], {}, {}
   for list in big_list: 
     ver = res(list[3], make_html(list[1]), 0)
@@ -68,14 +75,17 @@ def main():
         urllib.urlretrieve(url_dict[key], down_loc)
     else:
       c_new += 1
-      print key
-      print '  Downloading for first time!', '\n', '    Downloading', final_dict[key]
+      print key, '\n', '  Downloading for first time!', '\n', '    Downloading', final_dict[key]
       urllib.urlretrieve(url_dict[key], down_loc)
   print
-  if c_up == 1: print '1 file updated.'
-  else: print c_up, 'files updated.'
-  if c_new == 1: print '1 new file.'
-  else: print c_new, 'new files.'
+  if c_up == 1: 
+    print '1 file updated.'
+  else: 
+    print c_up, 'files updated.'
+  if c_new == 1: 
+    print '1 new file.'
+  else: 
+    print c_new, 'new files.'
   print '', '\n'
 
 main()
