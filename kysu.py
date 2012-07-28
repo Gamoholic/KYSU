@@ -19,7 +19,7 @@ def name_generator(name, ver):
 
 def name_replace(name, ver):
   name_rep = res('\$[^a-zA-Z]*\$', name, 0)
-  delim_ver = ver.replace('_', '').replace('.', '').replace('-', '').replace('"', '')
+  delim_ver = ver.translate(None, '_.-"')
   name_list, name_str, c = [], '', 0
   for s in range(len(name_rep)):
     if name_rep[s] == '$':
