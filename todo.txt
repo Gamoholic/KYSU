@@ -3,7 +3,7 @@
 - Add More Programs.
 - Self Update.
 - Add Support For Sites Like MajorGeeks and Download.com.
-- Create A Bukkit Plugin Branch.
+- Add Support For Bukkit Plugins.
 - Add More Error Checking.
 - Start A Version System.
 - Make A Changelog.
