@@ -71,8 +71,8 @@ def main():
                     if s.find(del_var) != -1:
                         print '  Deleted', s
                         os.remove(sys.argv[2] + s)
-              print '    Downloading', final_dict[key]
-              urllib.urlretrieve(url_dict[key], down_loc)
+                print '    Downloading', final_dict[key]
+                urllib.urlretrieve(url_dict[key], down_loc)
         else:
             c_new += 1
             print key 
