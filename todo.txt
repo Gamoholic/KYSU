@@ -7,4 +7,4 @@
 - Add more error checking.
 - Start a version system.
 - Make a changelog.
-- Possibly add post-download scripts. Example: deflate an archive and name the contents.
+- Possibly add post-download scripts. Example: inflate an archive and name the contents.
