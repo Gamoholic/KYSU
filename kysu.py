@@ -47,8 +47,7 @@ def res(regex, string, x):
 def main():
     print datetime.datetime.now().strftime("%m-%d-%Y")
     local_files = os.listdir(sys.argv[2])
-    big_list = [s.split() for s in open(sys.argv[1], 'rU').read().split('\n') 
-        if s != '' and not s.startswith('#')]
+    big_list = [s.split() for s in open(sys.argv[1], 'rU').readlines() if not s.startswith('#')]
     final_list, url_list, final_dict, url_dict = [], [], {}, {}
     for list in big_list: 
         ver = res(list[3], make_html(list[1]), 0)
