@@ -1,10 +1,12 @@
+#!/usr/bin/env python
 import datetime, os, re, sys, urllib
-fh = 'http://www.filehippo.com'
-exts = ['.exe', '.msi', '.iso', '.zip']
+FH = 'http://www.filehippo.com'
+EXTS = ['.exe', '.msi', '.iso', '.zip']
 
-def make_html(url): return urllib.urlopen(url).read()
+def make_html(url): 
+    return urllib.urlopen(url).read()
   
-def name_generator(name, ver):
+def name_gen(name, ver):
     if name.endswith('/') or name.find('$') == -1: 
         final_name = name
     else: 
@@ -14,7 +16,7 @@ def name_generator(name, ver):
     if 'filehippo' in name:
         a = res('\<a.*?(Latest Version).*?span\>', make_html(name), 0)
         b = res('href=\"(.*?)\"', a, 1)
-        final_name = fh + res('url\=(.*?)\"', make_html(fh + b), 1)
+        final_name = FH + res('url\=(.*?)\"', make_html(FH + b), 1)
     return final_name
 
 def name_replace(name, ver):
@@ -32,10 +34,10 @@ def name_replace(name, ver):
     return name.replace(name_rep, name_str)
 
 def build_dict(filenames):
-    dict, files = {}, [s for s in filenames for x in exts if s.endswith(x)]
+    dict_a, files = {}, [s for s in filenames for x in EXTS if s.endswith(x)]
     for s in files:
-        dict[res('(.*)\-', s, 1)] = res('-([\d\.]*)\.\w+', s, 1)
-    return dict
+        dict_a[res('(.*)\-', s, 1)] = res('-([\d\.]*)\.\w+', s, 1)
+    return dict_a
 
 def res(regex, string, x):
     a = re.search(regex, string)
@@ -47,11 +49,12 @@ def res(regex, string, x):
 def main():
     print datetime.datetime.now().strftime("%m-%d-%Y")
     local_files = os.listdir(sys.argv[2])
-    big_list = [s.split() for s in open(sys.argv[1], 'rU').readlines() if not s.startswith('#')]
+    big_list = [s.split() for s in open(sys.argv[1], 'rU').readlines()
+        if not s.startswith('#')]
     final_list, url_list, final_dict, url_dict = [], [], {}, {}
-    for list in big_list: 
-        ver = res(list[3], make_html(list[1]), 0)
-        url, final = name_generator(list[2], ver), name_generator(list[0], ver)
+    for alist in big_list: 
+        ver = res(alist[3], make_html(alist[1]), 0)
+        url, final = name_gen(alist[2], ver), name_gen(alist[0], ver)
         print url
         url_list.append(url)
         final_list.append(final)
@@ -75,7 +78,8 @@ def main():
         else:
             c_new += 1
             print key 
-            print '  Downloading for first time!', '\n', '    Downloading', final_dict[key]
+            print '  Downloading for first time!', '\n' 
+            print '    Downloading', final_dict[key]
             urllib.urlretrieve(url_dict[key], down_loc)
     print
     if c_up == 1: 
