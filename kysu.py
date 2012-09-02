@@ -1,7 +1,18 @@
 #!/usr/bin/env python
 import datetime, os, re, sys, urllib
+
+# Global Variables
 FH = 'http://www.filehippo.com'
 EXTS = ['.exe', '.msi', '.iso', '.zip']
+ARGS = sys.argv[1:]
+if not ARGS:
+    print 'usage: [-test] db_file download_location'
+    sys.exit(1)
+if ARGS[0] == '-test':
+    TEST = 'test'
+    del ARGS[0]
+else:
+    TEST = ''
 
 def make_html(url): 
     return urllib.urlopen(url).read()
@@ -45,11 +56,11 @@ def res(regex, string, x):
         return a.group() if x == 0 else a.group(x)
     except AttributeError: 
         return ''
-
+        
 def main():
     print datetime.datetime.now().strftime("%m-%d-%Y")
-    local_files = os.listdir(sys.argv[2])
-    big_list = [s.split() for s in open(sys.argv[1], 'rU').readlines()
+    local_files = os.listdir(ARGS[1])
+    big_list = [s.split() for s in open(ARGS[0], 'rU').readlines()
         if not s.startswith('#')]
     final_list, url_list, final_dict, url_dict = [], [], {}, {}
     for alist in big_list: 
@@ -63,7 +74,7 @@ def main():
     local_dict, update_dict = build_dict(local_files), build_dict(final_list)
     c_up, c_new = 0,0
     for key in update_dict:
-        down_loc = sys.argv[2] + final_dict[key]
+        down_loc = ARGS[1] + final_dict[key]
         if key in local_dict:
             if local_dict[key] != update_dict[key]:
                 c_up += 1
@@ -72,15 +83,18 @@ def main():
                 for s in local_files:
                     if s.find(del_var) != -1:
                         print '  Deleted', s
-                        os.remove(sys.argv[2] + s)
+                        if TEST != 'test':
+                            os.remove(ARGS[1] + s)
                 print '    Downloading', final_dict[key]
-                urllib.urlretrieve(url_dict[key], down_loc)
+                if TEST != 'test':
+                    urllib.urlretrieve(url_dict[key], down_loc)
         else:
             c_new += 1
             print key 
-            print '  Downloading for first time!', '\n' 
+            print '  Downloading for first time!' 
             print '    Downloading', final_dict[key]
-            urllib.urlretrieve(url_dict[key], down_loc)
+            if TEST != 'test':
+                urllib.urlretrieve(url_dict[key], down_loc)
     print
     if c_up == 1: 
         print '1 file updated.'
