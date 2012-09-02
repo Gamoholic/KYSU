@@ -5,15 +5,21 @@ import datetime, os, re, sys, urllib
 FH = 'http://www.filehippo.com'
 EXTS = ['.exe', '.msi', '.iso', '.zip']
 ARGS = sys.argv[1:]
+arg_dict = {'test': '-test', 'url': '-url', 'final': '-final'}
+op_dict = {'test': False, 'url': False, 'final': False}
 if not ARGS:
-    print 'usage: [-test] db_file download_location'
+    print 'usage: [-test] [-url] [-final] db_file download_location'
     sys.exit(1)
-if ARGS[0] == '-test':
-    TEST = 'test'
+del_args = 0
+for arg in range(len(ARGS)):
+    for key in arg_dict:
+        if ARGS[arg] == arg_dict[key]:
+            op_dict[key] = True
+            del_args += 1
+TEST, URL, FINAL = op_dict['test'], op_dict['url'], op_dict['final']
+for val in range(del_args):
     del ARGS[0]
-else:
-    TEST = ''
-
+    
 def make_html(url): 
     return urllib.urlopen(url).read()
   
@@ -66,7 +72,8 @@ def main():
     for alist in big_list: 
         ver = res(alist[3], make_html(alist[1]), 0)
         url, final = name_gen(alist[2], ver), name_gen(alist[0], ver)
-        print url
+        if URL == True: print url
+        if FINAL == True: print final
         url_list.append(url)
         final_list.append(final)
         name = res('(.*)\-', final, 1)
@@ -83,17 +90,17 @@ def main():
                 for s in local_files:
                     if s.find(del_var) != -1:
                         print '  Deleted', s
-                        if TEST != 'test':
+                        if TEST == False:
                             os.remove(ARGS[1] + s)
                 print '    Downloading', final_dict[key]
-                if TEST != 'test':
+                if TEST == False:
                     urllib.urlretrieve(url_dict[key], down_loc)
         else:
             c_new += 1
             print key 
             print '  Downloading for first time!' 
             print '    Downloading', final_dict[key]
-            if TEST != 'test':
+            if TEST == False:
                 urllib.urlretrieve(url_dict[key], down_loc)
     print
     if c_up == 1: 
