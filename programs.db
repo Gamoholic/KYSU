@@ -14,3 +14,4 @@ MBAM-$.$$.exe http://www.filehippo.com/download_malwarebytes_anti_malware/ http:
 MSE_32-$.$.$$$$.exe http://www.filehippo.com/download_security_essentials_vista/ http://www.filehippo.com/download_security_essentials_vista/ \d\.\d\.\d\d\d\d
 MSE_64-$.$.$$$$.exe http://www.filehippo.com/download_security_essentials_vista_64/ http://www.filehippo.com/download_security_essentials_vista_64/ \d\.\d\.\d\d\d\d
 VLC-$.$.$.exe http://sourceforge.net/projects/vlc/files/ http://sourceforge.net/projects/vlc/files/$.$.$/win32/vlc-$.$.$-win32.exe \d\.\d\.\d
+GIMP-$.$.$.exe http://sourceforge.net/projects/gimp-win/files/ http://sourceforge.net/projects/gimp-win/files/GIMP%20%2B%20GTK%2B%20%28stable%20release%29/GIMP%20$.$.$/gimp-$.$.$-setup-1.exe \d\.\d\.\d
