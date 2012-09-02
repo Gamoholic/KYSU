@@ -30,6 +30,6 @@ How to run this script:
 
 
 Example Cron script:
-	cd /home/user/updater 
+	cd /home/user/KYSU 
 	python kysu.py programs.db /home/user/programs/ >>programs-log.txt 
 	python kysu.py isos.db /home/user/isos/ >>isos-log.txt
