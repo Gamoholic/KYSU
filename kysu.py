@@ -72,12 +72,14 @@ def main():
     for alist in big_list: 
         ver = res(alist[3], make_html(alist[1]), 0)
         url, final = name_gen(alist[2], ver), name_gen(alist[0], ver)
-        if URL == True: print url
-        if FINAL == True: print final
         url_list.append(url)
         final_list.append(final)
         name = res('(.*)\-', final, 1)
         url_dict[name], final_dict[name] = url, final
+        if URL == True: 
+            print '{:>12} {}'.format(name, url)
+        if FINAL == True: 
+            print final
     local_dict, update_dict = build_dict(local_files), build_dict(final_list)
     c_up, c_new = 0,0
     for key in update_dict:
