@@ -91,9 +91,9 @@ def main():
                 del_var = key + '-' + local_dict[key]
                 for s in local_files:
                     if s.find(del_var) != -1:
-					    print '  Deleted', s
-					    if TEST == False:
-						    os.remove(ARGS[1] + s)
+                        print '  Deleted', s
+                        if TEST == False:
+                            os.remove(ARGS[1] + s)
                 print '    Downloading', final_dict[key]
                 if TEST == False:
                     urllib.urlretrieve(url_dict[key], down_loc)
