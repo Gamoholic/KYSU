@@ -64,7 +64,7 @@ def res(regex, string, x):
         return ''
         
 def main():
-    print datetime.datetime.now().strftime("%m-%d-%Y")
+    print datetime.datetime.now().strftime("%m-%d-%Y") #Today's date
     local_files = os.listdir(ARGS[1])
     big_list = [s.split() for s in open(ARGS[0], 'rU').readlines()
         if not s.startswith('#')]
@@ -91,9 +91,9 @@ def main():
                 del_var = key + '-' + local_dict[key]
                 for s in local_files:
                     if s.find(del_var) != -1:
-                        print '  Deleted', s
-                        if TEST == False:
-                            os.remove(ARGS[1] + s)
+					    print '  Deleted', s
+					    if TEST == False:
+						    os.remove(ARGS[1] + s)
                 print '    Downloading', final_dict[key]
                 if TEST == False:
                     urllib.urlretrieve(url_dict[key], down_loc)
