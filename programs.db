@@ -8,8 +8,8 @@ Libre_Office-$.$.$.msi http://wiki.documentfoundation.org/Main_Page http://downl
 7zip_64-$.$$.msi http://sourceforge.net/projects/sevenzip/files/7-Zip/ http://sourceforge.net/projects/sevenzip/files/7-Zip/$.$$/7z$$$.msi \"\d\.\d\d\"
 Adobe_Reader-$$.$.exe http://www.filehippo.com/download_adobe_reader/ http://www.filehippo.com/download_adobe_reader/ \d\d\.\d
 FileZilla-$.$.$.$.exe http://filezilla-project.org/download.php?type=client http://sourceforge.net/projects/filezilla/files/FileZilla_Client/$.$.$/FileZilla_$.$.$_win32-setup.exe \d\.\d\.\d\.\d
-Java_32-$.$.$.$.exe http://www.filehippo.com/download_jre_32/ http://www.filehippo.com/download_jre_32/ \d\.\d\.\d\.\d
-Java_64-$.$.$.$.exe http://www.filehippo.com/download_jre_64/ http://www.filehippo.com/download_jre_64/ \d\.\d\.\d\.\d
+Java_32-$.$.$.$$.exe http://www.filehippo.com/download_jre_32/ http://www.filehippo.com/download_jre_32/ \d\.\d\.\d\.\d\d
+Java_64-$.$.$.$$.exe http://www.filehippo.com/download_jre_64/ http://www.filehippo.com/download_jre_64/ \d\.\d\.\d\.\d\d
 MBAM-$.$$.exe http://www.filehippo.com/download_malwarebytes_anti_malware/ http://www.filehippo.com/download_malwarebytes_anti_malware/ \d\.\d\d
 MSE_32-$.$.$$$.exe http://www.filehippo.com/download_security_essentials_vista/ http://www.filehippo.com/download_security_essentials_vista/ \d\.\d\.\d\d\d
 MSE_64-$.$.$$$.exe http://www.filehippo.com/download_security_essentials_vista_64/ http://www.filehippo.com/download_security_essentials_vista_64/ \d\.\d\.\d\d\d
