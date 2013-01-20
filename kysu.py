@@ -63,6 +63,9 @@ def res(regex, string, x):
     except AttributeError: 
         return ''
         
+def cur_time():
+    return datetime.datetime.now().strftime("%H:%M:%S")
+        
 def main():
     print datetime.datetime.now().strftime("%m-%d-%Y") #Today's date
     local_files = os.listdir(ARGS[1])
@@ -77,9 +80,9 @@ def main():
         name = res('(.*)\-', final, 1)
         url_dict[name], final_dict[name] = url, final
         if URL == True: 
-            print '{:>12} {}'.format(name, url)
+            print '{} {:>12} {}'.format(cur_time(), name, url)
         if FINAL == True: 
-            print final
+            print '{} {}'.format(cur_time(), final)
     local_dict, update_dict = build_dict(local_files), build_dict(final_list)
     c_up, c_new = 0,0
     for key in update_dict:
@@ -87,32 +90,35 @@ def main():
         if key in local_dict:
             if local_dict[key] != update_dict[key]:
                 c_up += 1
-                print key
+                #print key
                 del_var = key + '-' + local_dict[key]
                 for s in local_files:
                     if s.find(del_var) != -1:
-                        print '  Deleted', s
+                        print '{} {} {}'.format(cur_time(), 'Deleted', s)
                         if TEST == False:
                             os.remove(ARGS[1] + s)
-                print '    Downloading', final_dict[key]
+                print '{} {} {}'.format(cur_time(), 'Downloading', 
+                    final_dict[key])
                 if TEST == False:
                     urllib.urlretrieve(url_dict[key], down_loc)
         else:
             c_new += 1
-            print key 
-            print '  Downloading for first time!' 
-            print '    Downloading', final_dict[key]
+            #print key 
+            #print '  Downloading for first time!' 
+            print '{} {} {}'.format(cur_time(), 'Downloading', 
+                final_dict[key])
             if TEST == False:
                 urllib.urlretrieve(url_dict[key], down_loc)
-    print
+    #print
     if c_up == 1: 
-        print '1 file updated.'
+        print '{} {}'.format(cur_time(), '1 file updated.')
     else: 
-        print c_up, 'files updated.'
+        print '{} {} {}'.format(cur_time(), c_up, 'files updated.')
     if c_new == 1: 
-        print '1 new file.'
+        print '{} {}'.format(cur_time(), '1 new file.')
     else: 
-        print c_new, 'new files.'
-    print '', '\n'
+        print '{} {} {}'.format(cur_time(), c_new, 'new files.')
+    #print '', '\n'
+    print
 
 main()
