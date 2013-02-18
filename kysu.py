@@ -90,7 +90,6 @@ def main():
         if key in local_dict:
             if local_dict[key] != update_dict[key]:
                 c_up += 1
-                #print key
                 del_var = key + '-' + local_dict[key]
                 for s in local_files:
                     if s.find(del_var) != -1:
@@ -103,13 +102,10 @@ def main():
                     urllib.urlretrieve(url_dict[key], down_loc)
         else:
             c_new += 1
-            #print key 
-            #print '  Downloading for first time!' 
             print '{} {} {}'.format(cur_time(), 'Downloading', 
                 final_dict[key])
             if TEST == False:
                 urllib.urlretrieve(url_dict[key], down_loc)
-    #print
     if c_up == 1: 
         print '{} {}'.format(cur_time(), '1 file updated.')
     else: 
@@ -118,7 +114,6 @@ def main():
         print '{} {}'.format(cur_time(), '1 new file.')
     else: 
         print '{} {} {}'.format(cur_time(), c_new, 'new files.')
-    #print '', '\n'
     print
 
 main()
