@@ -1,37 +1,3 @@
-***NOTE*** This script quit working as of June 1st, 2013. I will fix it when I can.
+This branch of KYSU is for maintaining a private Technic modpack.
 
-Program_Name-$$.$$.exe http://version/link http://download/link/program$$$.exe \d\d\.\d\d
-"Final Name" "URL for version #" "URL for download" "Regex"
-
-Final Name:
-	This is the name for the downloaded file. 
-	Words in the name are separated by underscores.
-	The version number is denoted by a hyphen.
-	Dollar signs are used as place holders for digits.
-	Ends with file extension (exe, zip, msi, etc.).
-
-URL for version #:
-	This is the link where the latest version number can be found.
-
-URL for download:
-	This is the link where you can download the program.
-	If the link ends with a filename with digits, 
-	use dollar signs as place holders.
-	Static links are awesome and should work fine.
-
-Regex:
-	This is where you specify the regular expression string used to find 
-	the version number from the "URL for version #".
-
-
-How to run this script:
-	python kysu.py "name of database" "directory containing the files"
-	example:
-		python kysu.py programs.db /home/user/programs/
-	NOTE: You must include the trailing "/" for the folder directory!
-
-
-Example Cron script:
-	cd /home/user/KYSU 
-	python kysu.py programs.db /home/user/programs/ >>programs-log.txt 
-	python kysu.py isos.db /home/user/isos/ >>isos-log.txt
+I will write this README once I figure out how this is going to work. It will be different from regular KYSU.
