@@ -1,5 +1,3 @@
-***NOTE*** This script quit working as of June 1st, 2013. I will fix it when I can.
-
 Program_Name-$$.$$.exe http://version/link http://download/link/program$$$.exe \d\d\.\d\d
 "Final Name" "URL for version #" "URL for download" "Regex"
 

@@ -74,6 +74,8 @@ def main():
     final_list, url_list, final_dict, url_dict = [], [], {}, {}
     for alist in big_list: 
         ver = res(alist[3], make_html(alist[1]), 0)
+        if ver == '':
+            print "Could not find the version number!"
         url, final = name_gen(alist[2], ver), name_gen(alist[0], ver)
         url_list.append(url)
         final_list.append(final)

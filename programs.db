@@ -1,7 +1,7 @@
 CCleaner-$.$$.$$$$.exe http://www.piriform.com/ccleaner/download http://download.piriform.com/ccsetup$$$.exe \d\.\d\d\.\d\d\d\d
 iTunes_64-$$.$.$.exe http://www.filehippo.com/download_itunes_64/ http://www.filehippo.com/download_itunes_64/ \d\d\.\d\.\d
 iTunes_32-$$.$.$.exe http://www.filehippo.com/download_itunes_32/ http://www.filehippo.com/download_itunes_32/ \d\d\.\d\.\d
-Notepad++-$.$.$.exe http://notepad-plus-plus.org/news/ http://download.tuxfamily.org/notepadplus/$.$/npp.$.$.$.Installer.exe 6\.\d\.\d
+Notepad++-$.$.$.exe http://notepad-plus-plus.org/news/ http://download.tuxfamily.org/notepadplus/$.$.$/npp.$.$.$.Installer.exe 6\.\d\.\d
 TeamViewer-$.$.$$$$$.exe http://www.teamviewer.com/en/download/index.aspx http://www.teamviewer.com/download/TeamViewer_Setup_en.exe \d\.\d\.\d\d\d\d\d
 Libre_Office-$.$.$.msi http://wiki.documentfoundation.org/Main_Page http://download.documentfoundation.org/libreoffice/stable/$.$.$/win/x86/LibreOffice_$.$.$_Win_x86.msi \d\.\d\.\d
 7zip_32-$.$$.exe http://sourceforge.net/projects/sevenzip/files/7-Zip/ http://sourceforge.net/projects/sevenzip/files/7-Zip/$.$$/7z$$$.exe \"\d\.\d\d\"
@@ -13,6 +13,6 @@ Java_64-$.$.$.$$.exe http://www.filehippo.com/download_jre_64/ http://www.filehi
 MBAM-$.$$.exe http://www.filehippo.com/download_malwarebytes_anti_malware/ http://www.filehippo.com/download_malwarebytes_anti_malware/ \d\.\d\d
 MSE_32-$.$.$$$.exe http://www.filehippo.com/download_security_essentials_vista/ http://www.filehippo.com/download_security_essentials_vista/ \d\.\d\.\d\d\d
 MSE_64-$.$.$$$.exe http://www.filehippo.com/download_security_essentials_vista_64/ http://www.filehippo.com/download_security_essentials_vista_64/ \d\.\d\.\d\d\d
-VLC-$.$.$.exe http://sourceforge.net/projects/vlc/files/ http://sourceforge.net/projects/vlc/files/$.$.$/win32/vlc-$.$.$-win32.exe \d\.\d\.\d
+VLC-$.$.$.exe http://www.videolan.org/news.html http://get.videolan.org/vlc/$.$.$/win32/vlc-$.$.$-win32.exe 2\.\d\.\d
 AMD_CCC_64-$$.$.exe http://www.filehippo.com/download_ati_catalyst_vista_64/ http://www.filehippo.com/download_ati_catalyst_vista_64/ \d\d\.\d
 NVIDIA_64-$$$.$$.exe http://www.filehippo.com/download_nvidia_forceware_vista_64/ http://www.filehippo.com/download_nvidia_forceware_vista_64/ \d\d\d\.\d\d
