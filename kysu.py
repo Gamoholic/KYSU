@@ -21,7 +21,10 @@ for val in range(del_args):
     del ARGS[0]
     
 def make_html(url): 
-    return urllib.urlopen(url).read()
+    html = urllib.urlopen(url).read()
+    if re.search('404 \- Not Found', html) != None:
+        print '{} {} {}'.format(cur_time(), "Bad URL:", url)
+    return html
   
 def name_gen(name, ver):
     if name.endswith('/') or name.find('$') == -1: 
