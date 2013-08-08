@@ -83,7 +83,7 @@ def main():
             final_list.append(final)
             url_dict[name], final_dict[name] = url, final
             if URL == True: 
-                print '{} {:>12} {}'.format(cur_time(), name, url)
+                print '{} {} {}'.format(cur_time(), name, url)
             if FINAL == True: 
                 print '{} {}'.format(cur_time(), final)
     local_dict, update_dict = build_dict(local_files), build_dict(final_list)
