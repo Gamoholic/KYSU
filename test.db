@@ -1,0 +1,8 @@
+#The good one
+CCleaner-$.$$.$$$$.exe http://www.piriform.com/ccleaner/download http://download.piriform.com/ccsetup$$$.exe \d\.\d\d\.\d\d\d\d
+#Version doesn't match
+FileZilla-$.$.$.$.exe http://filezilla-project.org/download.php?type=client http://sourceforge.net/projects/filezilla/files/FileZilla_Client/$.$.$.$/FileZilla_$.$.$.$_win32-setup.exe \d\.\d\.\d\.\d
+#Bad URL
+7zip_32-$.$$.exe http://sourceforge.nett/projects/sevenzip/files/7-Zip/ http://sourceforge.net/projects/sevenzip/files/7-Zip/$.$$/7z$$$.exe \"\d\.\d\d\"
+#Improper use of $
+Notepad++-$.$.$.exe http://notepad-plus-plus.org/news/ http://download.tuxfamily.org/notepadplus/$.$.$/npp.$.$.$$.Installer.exe 6\.\d\.\d
