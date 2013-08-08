@@ -66,57 +66,55 @@ def res(regex, string, x):
 def cur_time():
     return datetime.datetime.now().strftime("%H:%M:%S")
         
-def main():
-    print datetime.datetime.now().strftime("%m-%d-%Y") #Today's date
-    local_files = os.listdir(ARGS[1])
-    big_list = [s.split() for s in open(ARGS[0], 'rU').readlines()
-        if not s.startswith('#')]
-    final_list, url_list, final_dict, url_dict = [], [], {}, {}
-    for alist in big_list: 
-        name = res('(.*)\-', alist[0], 1)
-        ver = res(alist[3], make_html(alist[1]), 0)
-        if ver == '':
-            print '{} {} {}'.format(cur_time(), "Unable to find version number for:", name)
-        else:
-            url, final = name_gen(alist[2], ver), name_gen(alist[0], ver)
-            url_list.append(url)
-            final_list.append(final)
-            url_dict[name], final_dict[name] = url, final
-            if URL == True: 
-                print '{} {} {}'.format(cur_time(), name, url)
-            if FINAL == True: 
-                print '{} {}'.format(cur_time(), final)
-    local_dict, update_dict = build_dict(local_files), build_dict(final_list)
-    c_up, c_new = 0,0
-    for key in update_dict:
-        down_loc = ARGS[1] + final_dict[key]
-        if key in local_dict:
-            if local_dict[key] != update_dict[key]:
-                c_up += 1
-                del_var = key + '-' + local_dict[key]
-                for s in local_files:
-                    if s.find(del_var) != -1:
-                        print '{} {} {}'.format(cur_time(), 'Deleted', s)
-                        if TEST == False:
-                            os.remove(ARGS[1] + s)
-                print '{} {} {}'.format(cur_time(), 'Downloading', 
-                    final_dict[key])
-                if TEST == False:
-                    urllib.urlretrieve(url_dict[key], down_loc)
-        else:
-            c_new += 1
+#Main
+print datetime.datetime.now().strftime("%m-%d-%Y") #Today's date
+local_files = os.listdir(ARGS[1])
+big_list = [s.split() for s in open(ARGS[0], 'rU').readlines()
+    if not s.startswith('#')]
+final_list, url_list, final_dict, url_dict = [], [], {}, {}
+for alist in big_list: 
+    name = res('(.*)\-', alist[0], 1)
+    ver = res(alist[3], make_html(alist[1]), 0)
+    if ver == '':
+        print '{} {} {}'.format(cur_time(), "Unable to find version number for:", name)
+    else:
+        url, final = name_gen(alist[2], ver), name_gen(alist[0], ver)
+        url_list.append(url)
+        final_list.append(final)
+        url_dict[name], final_dict[name] = url, final
+        if URL == True: 
+            print '{} {} {}'.format(cur_time(), name, url)
+        if FINAL == True: 
+            print '{} {}'.format(cur_time(), final)
+local_dict, update_dict = build_dict(local_files), build_dict(final_list)
+c_up, c_new = 0,0
+for key in update_dict:
+    down_loc = ARGS[1] + final_dict[key]
+    if key in local_dict:
+        if local_dict[key] != update_dict[key]:
+            c_up += 1
+            del_var = key + '-' + local_dict[key]
+            for s in local_files:
+                if s.find(del_var) != -1:
+                    print '{} {} {}'.format(cur_time(), 'Deleted', s)
+                    if TEST == False:
+                        os.remove(ARGS[1] + s)
             print '{} {} {}'.format(cur_time(), 'Downloading', 
                 final_dict[key])
             if TEST == False:
                 urllib.urlretrieve(url_dict[key], down_loc)
-    if c_up == 1: 
-        print '{} {}'.format(cur_time(), '1 file updated.')
-    else: 
-        print '{} {} {}'.format(cur_time(), c_up, 'files updated.')
-    if c_new == 1: 
-        print '{} {}'.format(cur_time(), '1 new file.')
-    else: 
-        print '{} {} {}'.format(cur_time(), c_new, 'new files.')
-    print
-
-main()
+    else:
+        c_new += 1
+        print '{} {} {}'.format(cur_time(), 'Downloading', 
+            final_dict[key])
+        if TEST == False:
+            urllib.urlretrieve(url_dict[key], down_loc)
+if c_up == 1: 
+    print '{} {}'.format(cur_time(), '1 file updated.')
+else: 
+    print '{} {} {}'.format(cur_time(), c_up, 'files updated.')
+if c_new == 1: 
+    print '{} {}'.format(cur_time(), '1 new file.')
+else: 
+    print '{} {} {}'.format(cur_time(), c_new, 'new files.')
+print
