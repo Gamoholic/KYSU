@@ -33,8 +33,13 @@ def name_gen(name, ver):
         final_name = name
     else: 
         final_name = name_replace(name, ver)
+        counter_abortion = 0
         while '$' in final_name: 
+            counter_abortion += 1
             final_name = name_replace(final_name, ver)
+            if counter_abortion == 5:
+                final_name = "BROKEN"
+                break
     if 'filehippo' in name:
         a = res('\<a.*?(Latest Version).*?span\>', make_html(name), 0)
         b = res('href=\"(.*?)\"', a, 1)
@@ -86,22 +91,25 @@ for alist in big_list:
     else:
         url = name_gen(alist[2], ver)
         final = name_gen(alist[0], ver)
-        url_list.append(url)
-        final_list.append(final)
-        url_dict[name] = url
-        final_dict[name] = final
-        if URL == True: 
-            print '{} {} {}'.format(cur_time(), name, url)
-        if FINAL == True: 
-            print '{} {}'.format(cur_time(), final)
+        if url != "BROKEN" and final != "BROKEN":
+            url_list.append(url)
+            final_list.append(final)
+            url_dict[name] = url
+            final_dict[name] = final
+            if URL == True: 
+                print '{} {} {}'.format(cur_time(), name, url)
+            if FINAL == True: 
+                print '{} {}'.format(cur_time(), final)
+        else:
+            print '{} {} {}'.format(cur_time(), "Skipped due to improper use of $:", name)
 local_dict = build_dict(local_files)
 update_dict = build_dict(final_list)
-c_up, c_new = 0,0
+counter_updated, counter_new = 0,0
 for key in update_dict:
     down_loc = ARGS[1] + final_dict[key]
     if key in local_dict:
         if local_dict[key] != update_dict[key]:
-            c_up += 1
+            counter_updated += 1
             del_var = key + '-' + local_dict[key]
             for s in local_files:
                 if s.find(del_var) != -1:
@@ -113,17 +121,17 @@ for key in update_dict:
             if TEST == False:
                 urllib.urlretrieve(url_dict[key], down_loc)
     else:
-        c_new += 1
+        counter_new += 1
         print '{} {} {}'.format(cur_time(), 'Downloading', 
             final_dict[key])
         if TEST == False:
             urllib.urlretrieve(url_dict[key], down_loc)
-if c_up == 1: 
+if counter_updated == 1: 
     print '{} {}'.format(cur_time(), '1 file updated.')
 else: 
-    print '{} {} {}'.format(cur_time(), c_up, 'files updated.')
-if c_new == 1: 
+    print '{} {} {}'.format(cur_time(), counter_updated, 'files updated.')
+if counter_new == 1: 
     print '{} {}'.format(cur_time(), '1 new file.')
 else: 
-    print '{} {} {}'.format(cur_time(), c_new, 'new files.')
+    print '{} {} {}'.format(cur_time(), counter_new, 'new files.')
 print
