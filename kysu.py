@@ -73,18 +73,19 @@ def main():
         if not s.startswith('#')]
     final_list, url_list, final_dict, url_dict = [], [], {}, {}
     for alist in big_list: 
+        name = res('(.*)\-', alist[0], 1)
         ver = res(alist[3], make_html(alist[1]), 0)
         if ver == '':
-            print "Could not find the version number for:", alist[0]
-        url, final = name_gen(alist[2], ver), name_gen(alist[0], ver)
-        url_list.append(url)
-        final_list.append(final)
-        name = res('(.*)\-', final, 1)
-        url_dict[name], final_dict[name] = url, final
-        if URL == True: 
-            print '{} {:>12} {}'.format(cur_time(), name, url)
-        if FINAL == True: 
-            print '{} {}'.format(cur_time(), final)
+            print '{} {} {}'.format(cur_time(), "Unable to find version number for:", name)
+        else:
+            url, final = name_gen(alist[2], ver), name_gen(alist[0], ver)
+            url_list.append(url)
+            final_list.append(final)
+            url_dict[name], final_dict[name] = url, final
+            if URL == True: 
+                print '{} {:>12} {}'.format(cur_time(), name, url)
+            if FINAL == True: 
+                print '{} {}'.format(cur_time(), final)
     local_dict, update_dict = build_dict(local_files), build_dict(final_list)
     c_up, c_new = 0,0
     for key in update_dict:
