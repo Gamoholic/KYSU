@@ -26,7 +26,6 @@ How to run this script:
 	python kysu.py "name of database" "directory containing the files"
 	example:
 		python kysu.py programs.db /home/user/programs/
-	NOTE: You must include the trailing "/" for the folder directory!
 
 
 Example Cron script:
