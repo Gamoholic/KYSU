@@ -71,20 +71,21 @@ def build_dict(filenames):
 
 def res(regex, string, x):
     a = re.search(regex, string)
-    try: 
-        return a.group() if x == 0 else a.group(x)
-    except AttributeError: 
+    if a != None:
+        return a.group() if x ==0 else a.group(x)
+    else:
+        log("Regex failed for:", regex, name)
         return ''
         
 def cur_time():
     return datetime.datetime.now().strftime("%H:%M:%S")
-    
+
 def log(*args):
     format_string = '{}'
     for i in range(len(args)):
         format_string += ' {}'
     print format_string.format(cur_time(), *args)
-        
+
 #Main
 print datetime.datetime.now().strftime("%m-%d-%Y") #Today's date
 local_files = os.listdir(ARGS[1])
