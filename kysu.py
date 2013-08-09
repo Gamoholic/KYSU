@@ -21,6 +21,8 @@ URL = op_dict['url']
 FINAL = op_dict['final']
 for val in range(del_args):
     del ARGS[0]
+if ARGS[1].endswith('/') == -1:
+    ARGS[1] += '/'
     
 def make_html(url): 
     html = urllib.urlopen(url).read()
