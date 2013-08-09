@@ -27,7 +27,7 @@ if ARGS[1].endswith('/') == -1:
 def make_html(url): 
     html = urllib.urlopen(url).read()
     if re.search('404 \- Not Found', html) != None:
-        print '{} {} {}'.format(cur_time(), "Bad URL:", url)
+        log("Bad URL:", url)
     return html
   
 def name_gen(name, ver):
@@ -78,6 +78,12 @@ def res(regex, string, x):
         
 def cur_time():
     return datetime.datetime.now().strftime("%H:%M:%S")
+    
+def log(*args):
+    format_string = '{}'
+    for i in range(len(args)):
+        format_string += ' {}'
+    print format_string.format(cur_time(), *args)
         
 #Main
 print datetime.datetime.now().strftime("%m-%d-%Y") #Today's date
@@ -89,7 +95,7 @@ for alist in big_list:
     name = res('(.*)\-', alist[0], 1)
     ver = res(alist[3], make_html(alist[1]), 0)
     if ver == '':
-        print '{} {} {}'.format(cur_time(), "Unable to find version number for:", name)
+        log("Unable to find version number for:", name)
     else:
         url = name_gen(alist[2], ver)
         final = name_gen(alist[0], ver)
@@ -99,11 +105,11 @@ for alist in big_list:
             url_dict[name] = url
             final_dict[name] = final
             if URL == True: 
-                print '{} {} {}'.format(cur_time(), name, url)
+                log(name, url)
             if FINAL == True: 
-                print '{} {}'.format(cur_time(), final)
+                log(final)
         else:
-            print '{} {} {}'.format(cur_time(), "Skipped due to improper use of $:", name)
+            log("Skipped due to improper use of $:", name)
 local_dict = build_dict(local_files)
 update_dict = build_dict(final_list)
 counter_updated, counter_new = 0,0
@@ -115,19 +121,17 @@ for key in update_dict:
             file_to_delete = key + '-' + local_dict[key]
             for s in local_files:
                 if s.find(file_to_delete) != -1:
-                    print '{} {} {}'.format(cur_time(), 'Deleted', s)
+                    log('Deleted', s)
                     if TEST == False:
                         os.remove(ARGS[1] + s)
-            print '{} {} {}'.format(cur_time(), 'Downloading', 
-                final_dict[key])
+            log('Downloading', final_dict[key])
             if TEST == False:
                 urllib.urlretrieve(url_dict[key], download_location)
     else:
         counter_new += 1
-        print '{} {} {}'.format(cur_time(), 'Downloading', 
-            final_dict[key])
+        log('Downloading', final_dict[key])
         if TEST == False:
             urllib.urlretrieve(url_dict[key], download_location)
-print '{} {} {}'.format(cur_time(), 'Number of updates:', counter_updated)
-print '{} {} {}'.format(cur_time(), 'Number of new files:', counter_new)
+log('Number of updates:', counter_updated)
+log('Number of new files:', counter_new)
 print
