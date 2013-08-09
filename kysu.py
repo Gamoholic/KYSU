@@ -106,26 +106,26 @@ local_dict = build_dict(local_files)
 update_dict = build_dict(final_list)
 counter_updated, counter_new = 0,0
 for key in update_dict:
-    down_loc = ARGS[1] + final_dict[key]
+    download_location = ARGS[1] + final_dict[key]
     if key in local_dict:
         if local_dict[key] != update_dict[key]:
             counter_updated += 1
-            del_var = key + '-' + local_dict[key]
+            file_to_delete = key + '-' + local_dict[key]
             for s in local_files:
-                if s.find(del_var) != -1:
+                if s.find(file_to_delete) != -1:
                     print '{} {} {}'.format(cur_time(), 'Deleted', s)
                     if TEST == False:
                         os.remove(ARGS[1] + s)
             print '{} {} {}'.format(cur_time(), 'Downloading', 
                 final_dict[key])
             if TEST == False:
-                urllib.urlretrieve(url_dict[key], down_loc)
+                urllib.urlretrieve(url_dict[key], download_location)
     else:
         counter_new += 1
         print '{} {} {}'.format(cur_time(), 'Downloading', 
             final_dict[key])
         if TEST == False:
-            urllib.urlretrieve(url_dict[key], down_loc)
+            urllib.urlretrieve(url_dict[key], download_location)
 if counter_updated == 1: 
     print '{} {}'.format(cur_time(), '1 file updated.')
 else: 
