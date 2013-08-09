@@ -128,12 +128,6 @@ for key in update_dict:
             final_dict[key])
         if TEST == False:
             urllib.urlretrieve(url_dict[key], download_location)
-if counter_updated == 1: 
-    print '{} {}'.format(cur_time(), '1 file updated.')
-else: 
-    print '{} {} {}'.format(cur_time(), counter_updated, 'files updated.')
-if counter_new == 1: 
-    print '{} {}'.format(cur_time(), '1 new file.')
-else: 
-    print '{} {} {}'.format(cur_time(), counter_new, 'new files.')
+print '{} {} {}'.format(cur_time(), 'Number of updates:', counter_updated)
+print '{} {} {}'.format(cur_time(), 'Number of new files:', counter_new)
 print
