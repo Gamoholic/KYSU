@@ -92,7 +92,8 @@ def log(level, *args):
     if level == 'WARNING' or level == 'NOTICE':
         global SEND_EMAIL
         global MESSAGE
-        SEND_EMAIL = True
+        if SEND_EMAIL == False:
+            SEND_EMAIL = True
         MESSAGE += log_message + '\n'
         
 #Main
