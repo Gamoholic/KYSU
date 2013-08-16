@@ -1,9 +1,7 @@
-- Email reporting.
-- Command line options.
 - Add more programs.
 - Self update.
 - Add support for sites like MajorGeeks and Download.com.
-- Add support for Bukkit plugins.
+- Add support for Minecraft mods.
 - Add more error checking.
 - Start a version system.
 - Make a changelog.
