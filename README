@@ -22,13 +22,26 @@ Regex:
 	the version number from the "URL for version #".
 
 
+
 How to run this script:
-	python kysu.py "name of database" "directory containing the files"
+	python kysu.py [switches] "name of database" "directory containing the files"
 	example:
-		python kysu.py programs.db /home/user/programs/
+		python -email -final kysu.py programs.db /home/user/programs/
+		
+How to use the email reporting:
+    Create a file named "email_params.txt"
+    Fill in 5 lines of information: sender, receiver, username, password, server
+    Example:
+        me@mydomain.com
+        you@yourdomain.com
+        MyUsernameForMyEmail
+        supersecretpassword101
+        smtp.mydomain.com:587
+    The servers for Gmail and Outlook.com are: smtp.gmail.com:587 and smtp.live.com:587
+
 
 
 Example Cron script:
 	cd /home/user/KYSU 
-	python kysu.py programs.db /home/user/programs/ >>programs-log.txt 
-	python kysu.py isos.db /home/user/isos/ >>isos-log.txt
+	python kysu.py -email programs.db /home/user/programs/ >>programs-log.txt 
+	python kysu.py -email isos.db /home/user/isos/ >>isos-log.txt
