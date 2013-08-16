@@ -24,7 +24,7 @@ Regex:
 
 
 How to run this script:
-    python kysu.py [switches] "name of database" "directory containing the files"
+    python kysu.py [switches] "name of database" "directory for files"
     example:
         python -email -final kysu.py programs.db /home/user/programs/
 		
