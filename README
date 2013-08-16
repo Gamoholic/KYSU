@@ -2,31 +2,31 @@ Program_Name-$$.$$.exe http://version/link http://download/link/program$$$.exe \
 "Final Name" "URL for version #" "URL for download" "Regex"
 
 Final Name:
-	This is the name for the downloaded file. 
-	Words in the name are separated by underscores.
-	The version number is denoted by a hyphen.
-	Dollar signs are used as place holders for digits.
-	Ends with file extension (exe, zip, msi, etc.).
+    This is the name for the downloaded file. 
+    Words in the name are separated by underscores.
+    The version number is denoted by a hyphen.
+    Dollar signs are used as place holders for digits.
+    Ends with file extension (exe, zip, msi, etc.).
 
 URL for version #:
-	This is the link where the latest version number can be found.
+    This is the link where the latest version number can be found.
 
 URL for download:
-	This is the link where you can download the program.
-	If the link ends with a filename with digits, 
-	use dollar signs as place holders.
-	Static links are awesome and should work fine.
+    This is the link where you can download the program.
+    If the link ends with a filename with digits, 
+    use dollar signs as place holders.
+    Static links are awesome and should work fine.
 
 Regex:
-	This is where you specify the regular expression string used to find 
-	the version number from the "URL for version #".
+    This is where you specify the regular expression string used to find 
+    the version number from the "URL for version #".
 
 
 
 How to run this script:
-	python kysu.py [switches] "name of database" "directory containing the files"
-	example:
-		python -email -final kysu.py programs.db /home/user/programs/
+    python kysu.py [switches] "name of database" "directory containing the files"
+    example:
+        python -email -final kysu.py programs.db /home/user/programs/
 		
 How to use the email reporting:
     Create a file named "email_params.txt"
@@ -36,12 +36,14 @@ How to use the email reporting:
         you@yourdomain.com
         MyUsernameForMyEmail
         supersecretpassword101
-        smtp.mydomain.com:587
-    The servers for Gmail and Outlook.com are: smtp.gmail.com:587 and smtp.live.com:587
+        smtp.mydomain.com:port#
+    Some common servers: 
+        Gmail: smtp.gmail.com:587 
+        Outlook.com: smtp.live.com:587
 
 
 
 Example Cron script:
-	cd /home/user/KYSU 
-	python kysu.py -email programs.db /home/user/programs/ >>programs-log.txt 
-	python kysu.py -email isos.db /home/user/isos/ >>isos-log.txt
+    cd /home/user/KYSU 
+    python kysu.py -email programs.db /home/user/programs/ >>programs-log.txt 
+    python kysu.py -email isos.db /home/user/isos/ >>isos-log.txt
