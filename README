@@ -46,4 +46,3 @@ How to use the email reporting:
 Example Cron script:
     cd /home/user/KYSU 
     python kysu.py -email programs.db /home/user/programs/ >>programs-log.txt 
-    python kysu.py -email isos.db /home/user/isos/ >>isos-log.txt

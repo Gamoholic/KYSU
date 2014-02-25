@@ -46,7 +46,7 @@ def name_gen(name, ver):
                 final_name = "BROKEN"
                 break
     if 'filehippo' in name:
-        a = res('\<a.*?(Latest Version).*?span\>', make_html(name), 0)
+        a = res('\<a.class=\"program\-header\-download\-link.*', make_html(name), 0)
         b = res('href=\"(.*?)\"', a, 1)
         final_name = FH + res('url\=(.*?)\"', make_html(FH + b), 1)
     return final_name
@@ -75,9 +75,10 @@ def build_dict(filenames):
 def res(regex, string, x):
     a = re.search(regex, string)
     if a != None:
-        return a.group() if x ==0 else a.group(x)
+        return a.group() if x == 0 else a.group(x)
     else:
-        log('WARNING', "Regex failed for:", regex, string)
+        #log('WARNING', "Regex failed for:", regex, string)
+        log('WARNING', "Regex failed for:", regex, "lol just kidding")
         return ''
         
 def cur_time():
