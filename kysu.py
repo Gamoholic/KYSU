@@ -77,8 +77,7 @@ def res(regex, string, x):
     if a != None:
         return a.group() if x == 0 else a.group(x)
     else:
-        #log('WARNING', "Regex failed for:", regex, string)
-        log('WARNING', "Regex failed for:", regex, "lol just kidding")
+        log('WARNING', "Regex failed for:", regex, string)
         return ''
         
 def cur_time():
