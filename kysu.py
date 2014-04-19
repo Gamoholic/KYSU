@@ -1,7 +1,10 @@
 #!/usr/bin/env python
 import datetime, os, re, sys, urllib
 
-# Global Variables
+#------------------------------------------------------------------------------#
+# Global Variables                                                             #
+#------------------------------------------------------------------------------#
+
 FH = 'http://www.filehippo.com'
 EXTS = ['.exe', '.msi', '.iso', '.zip']
 MESSAGE = ''
@@ -26,7 +29,13 @@ for val in range(del_args):
     del ARGS[0]
 if ARGS[1].endswith('/') == -1:
     ARGS[1] += '/'
-    
+
+
+
+#------------------------------------------------------------------------------#
+# Functions                                                                    #
+#------------------------------------------------------------------------------#
+
 def make_html(url): 
     html = urllib.urlopen(url).read()
     if re.search('404 \- Not Found', html) != None:
@@ -95,8 +104,13 @@ def log(level, *args):
         if SEND_EMAIL == False:
             SEND_EMAIL = True
         MESSAGE += log_message + '\n'
-        
-#Main
+
+
+
+#------------------------------------------------------------------------------#
+# Main                                                                         #
+#------------------------------------------------------------------------------#
+
 print datetime.datetime.now().strftime("%m-%d-%Y") #Today's date
 local_files = os.listdir(ARGS[1])
 big_list = [s.split() for s in open(ARGS[0], 'rU').readlines()
@@ -147,16 +161,18 @@ log('INFO', 'Number of updates:', counter_updated)
 log('INFO', 'Number of new files:', counter_new)
 print
 
-#Email Logger
+
+
+#------------------------------------------------------------------------------#
+# Log Emailer                                                                  #
+#------------------------------------------------------------------------------#
+
 if EMAIL == True and SEND_EMAIL == True:
     import smtplib
-    param_list = [s.strip() for s in open('email_params.txt', 'rU').readlines()]
-    sender = param_list[0]
-    receiver = param_list[1]
-    username = param_list[2]
-    password = param_list[3]
-    server = param_list[4]
-    message = ("From: KYSU <%s>\nTo: <%s>\nSubject: Message from KYSU\n\n%s" % (sender, receiver, MESSAGE))
+    sender, receiver, username, password, server = [s.strip()
+        for s in open('email_params.txt', 'rU').readlines()]
+    message = ("From: KYSU <%s>\nTo: <%s>\nSubject: Message from KYSU\n\n%s" %
+        (sender, receiver, MESSAGE))
     email = smtplib.SMTP(server)
     email.starttls()
     email.login(username, password)
